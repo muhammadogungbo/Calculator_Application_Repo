@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- personal_style -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              myred: "#00ff00",
+              myblue: "#0000ff",
+              my_blue_span: "#1E0E62",
+              my_ul: "#15143966",
+              my_lb: "#25DAC5",
+              my_blue: "#473BF0",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="">
+    <div>
+      <div
+        id="container"
+        class="px-16 py-8 flex gap-8 items-center justify-center m-auto bg-myred"
+      >
+        <p id="hourLabel" class="text-white">Hours</p>
+        <p id="minLabel" class="text-white">Minutes</p>
+        <p id="secLabel" class="text-white">Seconds</p>
+        <input
+          id="hour"
+          type="number"
+          max="99"
+          min="0"
+          value="0"
+          class="time"
+        />
+        <p id="p1" class="semicolumn">,</p>
+        <input
+          id="minutes"
+          type="number"
+          max="60"
+          min="0"
+          value="0"
+          class="time"
+        />
+        <p id="p2" class="semicolumn">,</p>
+        <input
+          id="seconds"
+          type="number"
+          max="60"
+          min="0"
+          value="0"
+          class="time"
+        />
+
+        <button id="start">start</button>
+        <button id="reset">reset</button>
+      </div>
+    </div>
+  </body>
+  <script src="./app.js"></script>
+</html>

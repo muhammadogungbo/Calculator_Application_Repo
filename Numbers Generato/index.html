@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Numbers Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- personal_style -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              myred: "#00ff00",
+              myblue: "#0000ff",
+              my_blue_span: "#1E0E62",
+              my_ul: "#15143966",
+              my_lb: "#25DAC5",
+              my_blue: "#473BF0",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body id="bod">
+    <div class="container mx-auto px-4 py-10">
+      <h1 class="text-5xl font-bold uppercase text-center mb-5">
+        Number Generator Button
+      </h1>
+      <h2 class="capitalize text-xl font-mono font-medium text-center mb-2">
+        For Dom Manipulation And Event Listener Class
+      </h2>
+    </div>
+
+    <p
+      class="text-red-500 font-bold text-center mb-6 text-[26px]"
+      id="addStatement"
+    ></p>
+
+    <!-- For Number Generator Buttons-->
+    <div class="max-w-md mx-auto mb-6">
+      <form class="flex">
+        <input
+          type="text"
+          id="firstInput"
+          placeholder="Enter A Number Here"
+          class="flex-grow p-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          class="cursor-pointer bg-blue-500 text-white px-4 py-5 rounded-r-md hover:bg-blue-600 transition-all duration-300 ease-linear"
+          id="numBtn"
+        >
+          Generate Number
+        </button>
+      </form>
+    </div>
+
+    <!-- For span printer -->
+    <div
+      class="px-12 grid grid-cols-10 justify-center items-center gap-6"
+      id="spanContainer"
+    ></div>
+    <!-- Effect -->
+    <div class="flex items-center justify-center mx-auto" id="colorBtn">
+      <button class="bg-blue-500 text-white px-4 py-5 rounded-md">
+        Click For Color
+      </button>
+    </div>
+  </body>
+  <script src="./pro.js"></script>
+</html>

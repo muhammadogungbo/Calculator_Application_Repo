@@ -15,18 +15,20 @@ addBtn.addEventListener("click", (event) => {
   event.preventDefault();
 
   //To Make input a number
-  const inputvalue = parseInt(input.value);
+  const inputvalue = Number(input.value);
   // To make second inout a number
-  const inputvalues = parseInt(secInput.value);
+  const inputvalues = Number(secInput.value);
 
   // Onclick the two numbers on each imput should combine
   //   console.log(inputvalue + inputvalues);
 
   //Answer To Users
   // for loop
-  for (let i = 0; i <= inputvalue + inputvalues; i++) {
-    addAnswer.textContent = i;
-  }
+  // for (let i = 0; i <= inputvalue + inputvalues; i++) {
+  //   addAnswer.textContent = i;
+  // }
+  const twoNumbers = inputvalue + inputvalues;
+  addAnswer.textContent = twoNumbers;
 
   //
   //Statement for when there is no input
@@ -44,9 +46,9 @@ minusBtn.addEventListener("click", (event) => {
   event.preventDefault();
 
   //To make sure input value is a number
-  const inputvalue = parseInt(input.value);
+  const inputvalue = Number(input.value);
   //To make sure Secinput is a number
-  const inputvalues = parseInt(secInput.value);
+  const inputvalues = Number(secInput.value);
 
   //if statements
   if (input.value === "") {
@@ -54,14 +56,13 @@ minusBtn.addEventListener("click", (event) => {
   } else if (secInput.value === "") {
     addStatement.textContent =
       "Please Enter A Number In The Second Input space";
-  } else if (inputvalue < inputvalues) {
-    addStatement.textContent =
-      "First Number Should Be Greater Or Equal To Second Number ";
   } else {
     addStatement.textContent = "";
   }
   //Answer Format For Users using For Loop
-  for (let i = 0; i <= inputvalue - inputvalues; i++) {
-    addAnswer.textContent = i;
-  }
+  // for (let i = 0; i <= inputvalue - inputvalues; i++) {
+  //   addAnswer.textContent = i;
+  // }
+  const doubleNumbers = inputvalue - inputvalues;
+  addAnswer.textContent = doubleNumbers;
 });
