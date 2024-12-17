@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Explorer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- personal_style -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              myred: "#00ff00",
+              myblue: "#0000ff",
+              my_blue_span: "#1E0E62",
+              my_ul: "#15143966",
+              my_lb: "#25DAC5",
+              my_blue: "#473BF0",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="">
+    <div class="container mx-auto">
+      <h1 class="text-3xl font-bold mb-8 text-center tracking-wide font-mono">
+        Countries Explorer
+      </h1>
+    </div>
+
+    <!-- container for country cards -->
+    <div
+      id="countries_container"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+    ></div>
+
+    <!-- show error to user -->
+     
+    <script src="./app.js"></script>
+  </body>
+</html>

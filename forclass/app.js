@@ -1,16 +1,24 @@
-//Function For Weather
+const container_country = document.getElementById("countries_container");
 
-const checkweather = (weather) => {
-  if (weather === "rainy") {
-    console.log("Put on a rain coat");
-  } else if (weather === "cloudy") {
-    console.log("Carry Umbrella Out");
-  } else if (weather === "Sunny") {
-    console.log("Be a free man");
-  } else {
-    console.log("These Weather Does Not Exist");
+//Function Fetching countries data
+
+async function fetchCountriesData() {
+  try {
+    // add a console to verify data
+    console.log("countries Data:", countries_data);
+    //check if the data is valid
+    if (!countries_data || !Array.isArray(countries_data)) {
+      throw new Error("something went wrong while loading");
+    }
+
+    //function
+    // rendercountries_data(countries_data);
+  } catch (error) {
+    console.log("error", error);
   }
-  return weather;
-};
 
-//console.log(checkweather("rainy"));
+  //error
+  
+}
+
+fetchCountriesData();

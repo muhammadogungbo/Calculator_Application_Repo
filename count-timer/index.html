@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Number Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="px-16 py-12 md:px-8">
+      <h1
+        class="font-bold flex items-center justify-center mb-6 text-[26px] text-center"
+      >
+        Button For Number Generator
+      </h1>
+      <p
+        class="uppercase font-mono flex items-center justify-center text-center"
+      >
+        Java script is majorly for dom manipulation
+      </p>
+    </div>
+
+    <div>
+      <p
+        class="text-red-500 font-bold text-[26px] text-center mb-8"
+        id="eMessanger"
+      ></p>
+    </div>
+    <!-- For input -->
+    <div class="max-w-md mx-auto mb-6">
+      <form class="flex">
+        <input
+          type="text"
+          id="Input"
+          placeholder="Enter A Number Here"
+          class="flex-grow p-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+        <button
+          class="cursor-pointer bg-blue-500 text-white px-4 py-5 rounded-r-md hover:bg-blue-600 transition-all duration-300 ease-linear"
+          id="numberBtn"
+        >
+          Generate Numbers
+        </button>
+      </form>
+
+      <!-- creating Number span  -->
+    </div>
+    <div
+      class="grid grid-cols-10 justify-center items-center text-center gap-8 mt-16 px-12"
+      id="numberSpan"
+    ></div>
+  </body>
+  <script src="./pro.js"></script>
+</html>
