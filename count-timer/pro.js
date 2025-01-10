@@ -1,51 +1,49 @@
-const numberBtn = document.getElementById("numberBtn");
 const input = document.getElementById("Input");
-const eMessage = document.getElementById("eMessanger");
-const Holder = document.getElementById("numberSpan");
+const numberBtn = document.getElementById("numberBtn");
+//for error message and span container
+const addStatement = document.getElementById("eMessanger");
+const spanContainer = document.getElementById("numberSpan");
 
-//changing refresh default of the btn
+//function to create a button that generates number
 numberBtn.addEventListener("click", (event) => {
   event.preventDefault();
-
-  //make sure Number Going into input is a number
-  const inputvalue = parseInt(input.value);
-
-  //Writing some important if statements
-  if (input.value == "") {
-    eMessage.textContent = "Please Add A Number";
+  //making input a number
+  const inputValue = parseInt(input.value);
+  //making important if statements
+  if (input.value === "") {
+    addStatement.textContent = "please input a number";
   } else if (isNaN(input.value)) {
-    eMessage.textContent = "Do not add text,emojis Numbers Only";
+    addStatement.textContent = "Only numbers should be inputed";
   } else if (input.value > 500) {
-    eMessage.textContent = "Numbers Should Not Be Greater Than 500";
+    addStatement.textContent = "Numbers inputed should not be greater than 500";
+  } else if (input.value < 0) {
+    addStatement.textContent = "Negative Numbers are not allowed";
   } else {
-    eMessage.textContent = "";
+    addStatement.text = "";
   }
 
-  //create Loop to print answers
+  //creating the all important loop
   for (let i = 0; i < input.value; i++) {
-    const mspan = document.createElement("span");
-    mspan.textContent = i + 1;
+    const span = document.createElement("span");
+    span.textContent = i + 1;
 
-    //adding style to number span
-    const commonclasses = [
+    //creating common classes for span
+    const commonClasses = [
       "w-10",
       "h-10",
+      "rounded",
+      "border-2",
       "flex",
       "items-center",
       "justify-center",
-      "border-2",
-      "rounded",
     ];
-    Holder.append(mspan);
-    localStorage.setItem("span", mspan.innerHTML);
-
-    // conditional statement to differ odd numbers from the even once
+    spanContainer.appendChild(span);
+    //creating special classes
     const colorClasses =
       i % 2 === 0
         ? ["border-red-500", "text-red-500"]
         : ["border-green-500", "text-green-500"];
 
-    //add the styles to numberspan
-    mspan.classList.add(...commonclasses, ...colorClasses);
+    span.classList.add(...commonClasses, ...colorClasses);
   }
 });
