@@ -1,57 +1,55 @@
-//Addition
-const addBtn = document.getElementById("addButton");
-const input = document.getElementById("firstInput");
-//subtraction
-const secInput = document.getElementById("secondInput");
-const secBtn = document.getElementById("minusButton");
-//for answer and error message
-const addAnswer = document.getElementById("addAnswer");
 const addStatement = document.getElementById("addStatement");
+const addAnswer = document.getElementById("addAnswer");
+//Addition input and button
+const input = document.getElementById("firstInput");
+const addButton = document.getElementById("addButton");
+//subtraction input and button
+const secInput = document.getElementById("secondInput");
+const minusBtn = document.getElementById("minusButton");
 
-//function to add numbers
-addBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  //making input a number
-  const inputValue = parseInt(input.value);
-  const inputValues = parseInt(secInput.value);
-  //writing important if statement
+addButton.addEventListener("click", (e) => {
+  e.preventDefault();
+  //make input a number
+  const inputvalue = parseInt(input.value);
+  const inputvalues = parseInt(secInput.value);
+
+  //Importnat if statement
   if (input.value === "") {
-    addStatement.textContent = "Please input a number";
-  } else if (isNaN(input.value)) {
-    addStatement.textContent = "Enter only numbers not letters or emojis";
+    addStatement.textContent = "Please enter a value";
   } else if (secInput.value === "") {
-    addStatement.textContent = "Enter number to the second input";
-  } else if (input.value === "" || secInput.value === "") {
-    addAnswer.textContent = "";
-  } else {
-    addStatement === "";
-  }
-
-  // using loop to print out answer
-  for (let i = 0; i <= inputValue + inputValues; i++) {
-    addAnswer.textContent = i;
-  }
-});
-
-//function to subtract numbers
-secBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-  //making the two input a number
-  const subInputValue = parseInt(input.value);
-  const subInputValues = parseInt(secInput.value);
-  //making important if statement
-  if (input.value === "") {
-    addStatement.textContent = "please enter a number";
-  } else if (secInput.value === "") {
-    addStatement.textContent = "please enter a number to the input below";
+    addStatement.textContent = "Please enter a a value to the input below";
   } else if (isNaN(input.value)) {
-    addStatement.textContent = "No letters and emojis allowed";
-  } else if (input.value === "" || secInput.value === "") {
-    addAnswer.textContent = "";
+    addStatement.textContent = "Values entered should be numbers only";
+  } else if (isNaN(secInput.value)) {
+    addStatement.textContent = "Values entered should be numbers only";
   } else {
     addStatement.textContent = "";
   }
 
-  const subNumbers = subInputValue - subInputValues;
-  addAnswer.textContent = subNumbers;
+  //Create loop to add numbers and print out answers
+  for (let i = 0; i < inputvalue + inputvalues; i++) {
+    addAnswer.textContent = i + 1;
+  }
+});
+
+minusBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  //make input a number
+  const inputvalue = Number(input.value);
+  const inputvalues = Number(secInput.value);
+
+  //Importnat if statement
+  if (input.value === "") {
+    addStatement.textContent = "Please enter a Number";
+  } else if (secInput.value === "") {
+    addStatement.textContent = "Please enter a Number";
+  } else {
+    addStatement.textContent = "";
+  }
+
+  //Create loop to add numbers and print out answers
+  const subtractNumbers = inputvalue - inputvalues;
+  if (subtractNumbers) {
+    return (addAnswer.textContent = subtractNumbers);
+  }
 });
