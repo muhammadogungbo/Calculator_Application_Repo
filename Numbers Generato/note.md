@@ -71,3 +71,69 @@ colBtn.addEventListener("click", (event) => {
   const randomCol = mycolorArr[Math.floor(Math.random() * mycolorArr.length)];
   body.style.backgroundColor = randomCol;
 });
+
+
+const input = document.getElementById("Input");
+const numBtn = document.getElementById("numBtn");
+const addStatement = document.getElementById("addStatement");
+const spanContainer = document.getElementById("spanContainer");
+
+numBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  //make input a number
+  const inputValue = Number(input.value.trim());
+
+  //validate
+  if (input.value.trim() === "") {
+    addStatement.textContent = "Enter a number";
+    return;
+  } else if (isNaN(inputValue)) {
+    addStatement.textContent = "Value not allowed";
+    return;
+  } else if (input.value.trim() < 0) {
+    addStatement.textContent = "No negative values";
+    return;
+  } else if (input.value.trim() > 500) {
+    addStatement.textContent = "Value most not be greater than 500";
+    return;
+  } else {
+    addStatement.textContent = "";
+  }
+
+  spanContainer.innerHTML = "";
+
+  //Loop function to print data
+
+  for (let i = 0; i < inputValue; i++) {
+    const boxDiv = document.createElement("div");
+    boxDiv.textContent = i + 1;
+    //addding styling to the div
+    const commonClasses = [
+      "h-10",
+      "w-10",
+      "flex",
+      "items-center",
+      "justify-center",
+      "rounded",
+      "border",
+    ];
+    //adding content to cardDiv
+
+    const colorClasses =
+      i % 2 === 0
+        ? ["text-red-500", "border-red-500"]
+        : ["text-green-500", "border-green-500"];
+
+    boxDiv.classList.add(...commonClasses, ...colorClasses);
+
+    spanContainer.appendChild(boxDiv);
+  }
+});
+
+//function on input
+input.addEventListener("input", () => {
+  if (input.value.trim() === "") {
+    spanContainer.textContent = "";
+  }
+});

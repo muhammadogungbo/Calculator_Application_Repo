@@ -26,11 +26,15 @@
     </script>
   </head>
   <body id="bod">
+    <section>
     <div class="container mx-auto px-4 py-10">
-      <h1 class="text-5xl font-bold uppercase text-center mb-5">
+      <h1 class="text-5xl font-bold uppercase text-center mb-5" id="header">
         Number Generator Button
       </h1>
-      <h2 class="capitalize text-xl font-mono font-medium text-center mb-2">
+      <h2
+        class="capitalize text-xl font-mono font-medium text-center mb-2"
+        id="Secheader"
+      >
         For Dom Manipulation And Event Listener Class
       </h2>
     </div>
@@ -45,7 +49,7 @@
       <form class="flex">
         <input
           type="text"
-          id="firstInput"
+          id="Input"
           placeholder="Enter A Number Here"
           class="flex-grow p-2 border rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
@@ -64,8 +68,8 @@
       id="spanContainer"
     ></div>
     <!-- Effect -->
-    <div class="flex items-center justify-center mx-auto" id="colorBtn">
-      <button class="bg-blue-500 text-white px-4 py-5 rounded-md">
+    <div class="flex items-center justify-center mx-auto">
+      <button class="bg-blue-500 text-white px-4 py-5 rounded-md" id="colorBtn">
         Click For Color
       </button>
     </div>
