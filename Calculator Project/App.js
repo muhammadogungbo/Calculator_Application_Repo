@@ -1,76 +1,81 @@
+//for answer and error
 const addAnswer = document.getElementById("addAnswer");
-const addStatement = document.getElementById("addStatement");
-// for addition
 const input = document.getElementById("firstInput");
 const addBtn = document.getElementById("addButton");
-// for subtraction
-const secInput = document.getElementById("secondInput");
-const minusBtn = document.getElementById("minusButton");
+const secondInput = document.getElementById("secondInput");
+const minusButton = document.getElementById("minusButton");
+const addStatement = document.getElementById("addStatement");
 
-// function for addition
+//function on addBtn
 addBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  //make input a number
-  const inputValue = Number(input.value.trim());
-  const inputValues = Number(secInput.value.trim());
+  console.log("clickde");
 
-  //validation
-  if (input.value.trim() === "") {
-    addStatement.textContent = "Enter a number";
+  //make the two inputs number
+  const inputValue = Number(input.value);
+  const inputValues = Number(secondInput.value);
+
+  //make important checks
+  if (input.value === "") {
+    addStatement.textContent = "Enter a value";
     addAnswer.textContent = "";
     return;
-  } else if (secInput.value.trim() === "") {
-    addStatement.textContent = "Enter a number below";
+  } else if (secondInput.value === "") {
+    addStatement.textContent = "Enter a value below";
     addAnswer.textContent = "";
     return;
   } else if (isNaN(inputValue)) {
-    addStatement.textContent = "Numbers only";
+    addStatement.textContent = "Input numbers only";
     addAnswer.textContent = "";
     return;
   } else if (isNaN(inputValues)) {
-    addStatement.textContent = "No values other than numbers";
+    addStatement.textContent = "only numbers are allowed";
     addAnswer.textContent = "";
     return;
   } else {
     addStatement.textContent = "";
   }
 
-  //function to addAnswer
-  const addTwoAnswers = inputValue + inputValues;
-  addAnswer.textContent = addTwoAnswers;
+  //function to add numbers
+  const addNumbers = inputValue + inputValues;
+  addAnswer.textContent = addNumbers;
 });
 
-//function to subtract numbers
-minusBtn.addEventListener("click", (e) => {
+//function on subBtn
+minusButton.addEventListener("click", (e) => {
   e.preventDefault();
 
-  //make input and secinput a number
-  const inputValue = Number(input.value.trim());
-  const inputValues = Number(secInput.value.trim());
+  console.log("clickde");
 
-  //Validate
-  if (input.value.trim() === "") {
-    addStatement.textContent = "Enter a number";
+  //make the two inputs number
+  const inputValue = Number(input.value);
+  const inputValues = Number(secondInput.value);
+
+  //make important checks
+  if (input.value === "") {
+    addStatement.textContent = "Enter a value";
     addAnswer.textContent = "";
     return;
-  } else if (secInput.value.trim() === "") {
-    addStatement.textContent = "Enter a number below";
+  } else if (secondInput.value === "") {
+    addStatement.textContent = "Enter a value below";
     addAnswer.textContent = "";
     return;
   } else if (isNaN(inputValue)) {
-    addStatement.textContent = "Number only";
+    addStatement.textContent = "Input numbers only";
     addAnswer.textContent = "";
     return;
   } else if (isNaN(inputValues)) {
-    addStatement.textContent = "No other values than numbers";
+    addStatement.textContent = "only numbers are allowed";
     addAnswer.textContent = "";
     return;
   } else {
     addStatement.textContent = "";
   }
 
-  //Function to subtract numbers
+  //function to add numbers
   const minusNumbers = inputValue - inputValues;
   addAnswer.textContent = minusNumbers;
 });
+
+//function on input to clearAnswer

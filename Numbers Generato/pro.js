@@ -1,91 +1,98 @@
-const addStatement = document.getElementById("addStatement");
-const input = document.getElementById("Input");
-const numBtn = document.getElementById("numBtn");
-
-//span container
-const spanContainer = document.getElementById("spanContainer");
-const colorBtn = document.getElementById("colorBtn");
+//Things to apply btn colour on
 const body = document.getElementById("bod");
-
-//Texts
 const header = document.getElementById("header");
 const Secheader = document.getElementById("Secheader");
 
-//function to create number boxes
+const addStatement = document.getElementById("addStatement");
+const input = document.getElementById("Input");
+const numBtn = document.getElementById("numBtn");
+const spanContainer = document.getElementById("spanContainer");
+
+//colorBtn
+const colorBtn = document.getElementById("colorBtn");
+
+//function to print numbers
 numBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  //make input a number
-  const inputValue = Number(input.value.trim());
+  //change input to number
+  const inputValue = Number(input.value);
 
-  //make validations
-  if (input.value.trim() === "") {
+  //make important checks
+  if (input.value === "") {
     addStatement.textContent = "Enter a number";
     return;
-  } else if (isNaN(input.value.trim())) {
-    addStatement.textContent = "Letters and symbols not allowed";
+  } else if (isNaN(inputValue)) {
+    addStatement.textContent = "Enter numbers only";
     return;
-  } else if (input.value.trim() > 500) {
+  } else if (input.value > 500) {
     addStatement.textContent = "Number should not be greater than 500";
+    spanContainer.textContent = "";
     return;
-  } else if (input.value.trim() < 0) {
-    addStatement.textContent = "Negative numbers not allowed";
+  } else if (input.value < 0) {
+    addStatement.textContent = "Negative numbers are not allowed";
     return;
   } else {
     addStatement.textContent = "";
   }
 
+  //before every loop spanContainer empty
   spanContainer.textContent = "";
 
-  //Loop to print answer
+  //loop to print out numbers
   for (let i = 0; i < inputValue; i++) {
-    //create span and add i
-    const span = document.createElement("span");
-    span.textContent = i + 1;
+    const box = document.createElement("span");
+    box.textContent = i + 1;
 
-    //create styling for span
+    //create commonClasses
     const commonClasses = [
-      "w-10",
-      "h-10",
+      "bg-white",
+      "border",
       "flex",
       "items-center",
       "justify-center",
-      "border",
+      "h-10",
+      "w-10",
+      "border-2",
     ];
+
+    spanContainer.appendChild(box);
 
     const colorClasses =
       i % 2 === 0
         ? ["text-red-500", "border-red-500"]
         : ["text-green-500", "border-green-500"];
 
-    span.classList.add(...commonClasses, ...colorClasses);
-    spanContainer.appendChild(span);
+    box.classList.add(...commonClasses, ...colorClasses);
   }
 });
 
+//function on input
+input.addEventListener("input", () => {
+  if (input.value === "") {
+    spanContainer.textContent = "";
+  }
+});
+
+//function on colourBtn
 colorBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const colorArr = ["black", "green", "blue", "purple", "white"];
+  const colorArr = ["blue", "purple", "green", "gray", "white"];
   const randomCol = colorArr[Math.floor(Math.random() * colorArr.length)];
   body.style.backgroundColor = randomCol;
 
+  //changing color of some elements
   if (
-    randomCol === "black" ||
-    randomCol === "green" ||
     randomCol === "blue" ||
-    randomCol === "purple"
+    randomCol === "purple" ||
+    randomCol === "green" ||
+    randomCol === "gray"
   ) {
     header.style.color = "white";
     Secheader.style.color = "white";
   } else if (randomCol === "white") {
     header.style.color = "black";
     Secheader.style.color = "black";
-  }
-});
-
-input.addEventListener("input", () => {
-  if (input.value.trim() === "") {
-    spanContainer.textContent = "";
   }
 });
