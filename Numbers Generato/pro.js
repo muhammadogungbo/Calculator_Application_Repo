@@ -1,98 +1,101 @@
-//Things to apply btn colour on
-const body = document.getElementById("bod");
-const header = document.getElementById("header");
+//elements
+const bod = document.getElementById("bod");
 const Secheader = document.getElementById("Secheader");
+const header = document.getElementById("header");
 
+//Importat imports
 const addStatement = document.getElementById("addStatement");
+const addWelcome = document.getElementById("addWelcome");
+
+//main imports
 const input = document.getElementById("Input");
 const numBtn = document.getElementById("numBtn");
 const spanContainer = document.getElementById("spanContainer");
-
-//colorBtn
 const colorBtn = document.getElementById("colorBtn");
 
-//function to print numbers
+// function on number ntn
 numBtn.addEventListener("click", (e) => {
   e.preventDefault();
+  console.log("clicked");
 
-  //change input to number
-  const inputValue = Number(input.value);
+  const inputValue = Number(input.value.trim());
 
-  //make important checks
-  if (input.value === "") {
+  //make checks
+  if (input.value.trim() === "") {
     addStatement.textContent = "Enter a number";
-    return;
-  } else if (isNaN(inputValue)) {
-    addStatement.textContent = "Enter numbers only";
-    return;
-  } else if (input.value > 500) {
-    addStatement.textContent = "Number should not be greater than 500";
     spanContainer.textContent = "";
     return;
-  } else if (input.value < 0) {
-    addStatement.textContent = "Negative numbers are not allowed";
+  } else if (isNaN(inputValue)) {
+    addStatement.textContent = "Value must be a number";
+    spanContainer.textContent = "";
+    return;
+  } else if (input.value.trim() > 500) {
+    addStatement.textContent = "Value should not be greater than 500";
+    spanContainer.textContent = "";
+    return;
+  } else if (input.value.trim() < 0) {
+    addStatement.textContent = "Negative values are not allowed";
+    spanContainer.textContent = "";
     return;
   } else {
     addStatement.textContent = "";
   }
 
-  //before every loop spanContainer empty
   spanContainer.textContent = "";
 
-  //loop to print out numbers
+  //creating loop to enforce number creation
   for (let i = 0; i < inputValue; i++) {
-    const box = document.createElement("span");
-    box.textContent = i + 1;
+    //creating boxes div
+    const cardDiv = document.createElement("span");
+    cardDiv.textContent = i + 1;
 
-    //create commonClasses
+    //adding commonClasses
     const commonClasses = [
       "bg-white",
-      "border",
       "flex",
       "items-center",
       "justify-center",
       "h-10",
       "w-10",
+      "rounded",
+      "border",
       "border-2",
     ];
 
-    spanContainer.appendChild(box);
+    spanContainer.appendChild(cardDiv);
 
+    //creating colorClasses
     const colorClasses =
       i % 2 === 0
         ? ["text-red-500", "border-red-500"]
         : ["text-green-500", "border-green-500"];
 
-    box.classList.add(...commonClasses, ...colorClasses);
+    cardDiv.classList.add(...commonClasses, ...colorClasses);
   }
 });
 
-//function on input
-input.addEventListener("input", () => {
-  if (input.value === "") {
+//input and
+
+input.addEventListener("input", handleInput);
+
+function handleInput() {
+  if (input.value.trim() === "") {
     spanContainer.textContent = "";
+    addStatement.textContent = "";
+    addWelcome.textContent = "Welcome to mohds application";
+  } else {
+    addWelcome.textContent = "";
   }
-});
+}
 
-//function on colourBtn
+//onBtn
 colorBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
-  const colorArr = ["blue", "purple", "green", "gray", "white"];
+  const colorArr = ["red", "green", "blue"];
   const randomCol = colorArr[Math.floor(Math.random() * colorArr.length)];
-  body.style.backgroundColor = randomCol;
 
-  //changing color of some elements
-  if (
-    randomCol === "blue" ||
-    randomCol === "purple" ||
-    randomCol === "green" ||
-    randomCol === "gray"
-  ) {
-    header.style.color = "white";
-    Secheader.style.color = "white";
-  } else if (randomCol === "white") {
-    header.style.color = "black";
-    Secheader.style.color = "black";
-  }
+  bod.style.backgroundColor = randomCol;
 });
+
+//New record 24 MINS - 40 secs
