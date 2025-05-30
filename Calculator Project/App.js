@@ -88,7 +88,7 @@ function handleInput(){
   if(input.value.trim() === "" && secondInput.value.trim() === ""){
     addAnswer.textContent = ""
     addStatement.textContent = ""
-    addWelcome.textContent = "Thanks for using this"
+    addWelcome.textContent = "Hello"
   } else{
     addWelcome.textContent = ""
   }

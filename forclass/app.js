@@ -1,11 +1,18 @@
-const container = document.getElementById("countries_container");
+// important contents
+const showClose = document.getElementById("showClose")
+const toggleMenu = document.getElementById("toggleMenu")
+const closeMenu = document.getElementById("closeMenu")
 
-//function to fetchData
-const fetchCountriesData = () => {
-try {
-  //posting data to frontend
-  console.log("countries_data:")
-} catch (error) {
-  
-}
-};
+
+toggleMenu.addEventListener("click",()=>{
+  toggleMenu.classList.add("hideMenu")
+  showClose.classList.add("show")
+  closeMenu.classList.add("showClose")
+
+})
+
+closeMenu.addEventListener("click",()=>{
+   toggleMenu.classList.remove("hideMenu")
+  showClose.classList.remove("show")
+  closeMenu.classList.remove("showClose")
+})

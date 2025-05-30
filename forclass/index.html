@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Country Explorer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <!-- for_css -->
+     <link rel="stylesheet" href="style.css">
+     <!-- Boxicons CSS -->
+<link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+<link href='https://cdn.boxicons.com/fonts/brands/boxicons-brands.min.css' rel='stylesheet'>
     <!-- personal_style -->
     <script>
       tailwind.config = {
@@ -26,20 +30,63 @@
     </script>
   </head>
   <body class="">
-    <div class="container mx-auto">
-      <h1 class="text-3xl font-bold mb-8 text-center tracking-wide font-mono">
-        Countries Explorer
-      </h1>
-    </div>
+     <!-- header -->
+     <header class="lg:px-12 md:px-8 px-4 py-4 ">
+      <nav class="flex items-center justify-between ">
+        <span class="font-mono font-bold lg:text-[24px] text-[24px]">Fake-Store</span>
 
-    <!-- container for country cards -->
-    <div
-      id="countries_container"
-      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-    ></div>
+         <ul class=" items-center  justify-content-center gap-4 md:flex hidden">
+          <li class="font-semibold hover:underline hover:text-blue-500  text-[16px]"><a href="">Home</a></li>
+          <li class="font-semibold hover:underline hover:text-yellow-500 text-[16px]"><a href="">Demo</a></li>
+          <li class="font-semibold hover:underline hover:text-green-500 text-[16px]"><a href="">Features</a></li>
+          <li class="font-semibold hover:underline hover:text-purple-500 text-[16px]"><a href="">Pages</a></li>
+         </ul>
+         <!-- for btn -->
+          <div class="md:flex items-center justify-center gap-4 hidden">
+            <button class="font-bold text-[16px] border px-4 py-1 text-center text-white rounded-md bg-purple-500">Signup</button>
+            <button class="font-bold text-[16px]  border px-4 py-1 text-center text-white rounded-md bg-green-500">Signin</button>
 
-    <!-- show error to user -->
-     
+          </div>
+
+          <!-- ul and btn for small screens -->
+
+          <div class=" hidden" id="showClose">
+            <ul class="flex items-center justify-center gap-4">
+              <li class="text-white"><a href="">Home</a></li>
+              <li class="text-white"><a href="">Demo</a></li>
+              <li class="text-white"><a href="">Features</a></li>
+              <li class="text-white"><a href="">Pages</a></li>
+            </ul>
+
+            <div class="flex gap-4 ">
+              <button class="bg-purple-500 text-white rounded-md px-3 py-1">Signup </button>
+              <button class="bg-green-500 text-white rounded-md px-3 py-1">Signin</button>
+            </div>
+          </div>
+
+         <!-- for menu icons -->
+          <!-- menu icons -->
+          <i class='bx bx-menu-close text-[24px] text-black md:hidden' id="toggleMenu"></i>
+          <!-- x icons  -->
+           <i class='bx  bx-x text-[24px] hidden' id="closeMenu"></i> 
+      </nav>
+      
+     </header>
+      
+     <!-- hero -->
+      <section class="mt-4 lg:px-12 md:px-8 px-4 py-4">
+        <!-- for text -->
+        <div>
+       <h2 class="flex items-center  justify-center md:text-[24px] text-[36px] font-bold">Welcome To Fake Store Api Of Africa</h2>
+      <p class="mt-4 flex items-center justify-center md:text-[18px] text-[20px]">Welcome to Fake Store Api Africa . Here you can view our products, their prices and honest review of their prices.</p>
+        </div>
+
+        <!-- for information -->
+         <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-6 gap-4 " id="container">
+         
+         </div>
+      
+      </section>
     <script src="./app.js"></script>
   </body>
 </html>
