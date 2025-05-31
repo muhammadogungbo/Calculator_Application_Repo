@@ -6,7 +6,7 @@ const closeMenu = document.getElementById("closeMenu");
 //container
 const container = document.getElementById("container");
 
-// const Url = "https://fakestoreapi.com/products";
+const Url = "https://fakestoreapi.com/products";
 
 //Targets
 // "id": 0,
@@ -30,7 +30,7 @@ closeMenu.addEventListener("click", () => {
   closeMenu.classList.remove("showClose");
 });
 
-let products = [];
+
 
 //function to fetch fakeStore_Api
 
@@ -43,11 +43,18 @@ fetch(Url)
     datas.forEach((data) => {
       //creating cardDiv
       const cardDiv = document.createElement("div")
-      cardDiv.className = "rounded-sm px-4 py-4 box-shadow transition-all duration-300 hover:shadow-md hover:shadow-md "
+      cardDiv.className = "rounded-sm px-4 py-4 border h-full transition-all duration-300  hover:shadow-md  "
      
       //Adding element into cardDiv
       cardDiv.innerHTML = `
-       <img src="${data.image || "Products img"}" class="h-43   rounded-md bg-cover w-full" />
+       <img src="${data.image || "Products img"}" class=" h-[50%] h-25 rounded-md bg-cover w-full" />
+
+       <hr class="mt-8 bg-gray-900 bg-bold "></hr>
+       <div class="p-3">
+        <h2 class="text-center lg:text-[16px] md:text-xl text-[24px] font-bold mb-2 text-orange-400">${data.title || "Product title"}</h2>
+        <P class="text-center md:text-[16px] text-[20px] font-mono hover:underline hover:text-purple-500 font-purple-500">${data.category || "Products category"}</p>
+        <P class="text-green-500 font-bold font-mono text-center text-[20px]">$ ${data.price || "Product price"}</p>
+       </div>
       `
      
       container.appendChild(cardDiv)
@@ -55,5 +62,9 @@ fetch(Url)
   })
   .catch((error) => {
     console.log(error);
+
+    container.innerHTML = `
+    <p class="text-red-500 text-center text-2xl">Loading...</p>
+    `
   });
 
