@@ -6,7 +6,7 @@ const closeMenu = document.getElementById("closeMenu");
 //container
 const container = document.getElementById("container");
 
-const Url = "https://fakestoreapi.com/products";
+// const Url = "https://fakestoreapi.com/products";
 
 //Targets
 // "id": 0,
